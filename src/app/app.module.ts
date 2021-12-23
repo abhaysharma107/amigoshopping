@@ -12,6 +12,7 @@ import { SlideComponent } from './web/slide/slide.component';
 import { SpecialdealComponent } from './web/specialdeal/specialdeal.component';
 import { ProductsComponent } from './web/products/products.component';
 import { ProductexplainComponent } from './web/productexplain/productexplain.component';
+import { CartComponent } from './web/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ProductexplainComponent } from './web/productexplain/productexplain.com
     SpecialdealComponent,
     ProductsComponent,
     ProductexplainComponent,
+    CartComponent,
   ],
   imports: [
     MatCardModule,
@@ -32,7 +34,8 @@ import { ProductexplainComponent } from './web/productexplain/productexplain.com
       {path:'', component:SlideComponent},
       {path:'home', component:SlideComponent},
       {path:'productexplain', component:ProductexplainComponent},
-      {path:'home/productexplain', component:ProductexplainComponent}
+      {path:'home/productexplain', component:ProductexplainComponent},
+      {path:'cart', component:CartComponent}
     ])
   ],
   providers: [],
