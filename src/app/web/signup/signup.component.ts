@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { SigndataService } from 'src/app/_service/signdata.service';
 
 @Component({
   selector: 'app-signup',
@@ -8,7 +9,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   signup:any
-  constructor(private fb:FormBuilder) { }
+  constructor(
+    private fb:FormBuilder,
+    private signupDataSend:SigndataService) { }
  
   ngOnInit(): void {
     this.signup = this.fb.group({
@@ -35,7 +38,11 @@ export class SignupComponent implements OnInit {
 
   onSubmit(){
     console.log(this.signup.value);
-    
+    this.signupDataSend.sendSignUpData(this.signup.value).subscribe(
+      data => console.log('success', data),
+      error => console.error('error', Error)
+      
+    )
   }
   get firstname() {return this.signup.get('firstname');}
   get emailform() {return this.signup.get('emailform');}

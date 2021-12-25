@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class SlideapiService {
-
+  
   userOnClickData:any=[]
   constructor(private http: HttpClient) { }
   getData():Observable<Product[]>{
