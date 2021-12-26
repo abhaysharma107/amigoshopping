@@ -1,0 +1,103 @@
+<form class="example-form" [formGroup]="signup" (ngSubmit)="onSubmit()" novalidate>
+
+    <table class="example-full-width" cellspacing="0">
+        <tr>
+            <td>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>First name</mat-label>
+                    <input matInput formControlName="firstname">
+                    <mat-error *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)">
+                        <mat-error *ngIf="firstname.hasError('required')">
+                            Name is required
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </td>
+        </tr>
+    </table>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="emailform" placeholder="Ex. pat@example.com">
+        <mat-error *ngIf="emailform.invalid && (emailform.dirty || emailform.touched)">
+            <mat-error *ngIf="emailform.hasError('email') && !emailform.hasError('required')">
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailform.hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+        </mat-error>
+    </mat-form-field>
+    <table class="example-full-width" cellspacing="0">
+        <tr>
+            <td>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>New Password</mat-label>
+                    <input matInput type="password">
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Re-Enter New Password</mat-label>
+                    <input matInput type="password">
+                </mat-form-field>
+            </td>
+        </tr>
+    </table>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Address</mat-label>
+        <textarea matInput placeholder="Ex. 100 Main St" formControlName="address"></textarea>
+        <mat-error *ngIf="address.invalid && (address.dirty || address.touched)">
+            <mat-error *ngIf="address.hasError('required')">
+                Address is required
+            </mat-error>
+        </mat-error>
+    </mat-form-field>
+    <!-- <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password">
+        </mat-form-field> -->
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>City</mat-label>
+        <input matInput placeholder="Ex. San Francisco" formControlName="city">
+        <mat-error *ngIf="city.invalid && (city.dirty || city.touched)">
+            <mat-error *ngIf="city.hasError('required')">
+                City is required
+            </mat-error>
+        </mat-error>
+    </mat-form-field>
+
+    <table class="example-full-width" cellspacing="0">
+        <tr>
+            <td>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>State</mat-label>
+                    <input matInput placeholder="Ex. California" formControlName="state">
+                    <mat-error *ngIf="state.invalid && (state.dirty || state.touched)">
+                        <mat-error *ngIf="state.hasError('required')">
+                            State is required
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Pin Code</mat-label>
+                    <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="" formControlName="pincode">
+                    <mat-error *ngIf="pincode.invalid && (pincode.dirty || pincode.touched)">
+                        <mat-error *ngIf="pincode.hasError('required')">
+                            Pin Code is required
+                        </mat-error>
+                    </mat-error>
+                    <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
+                </mat-form-field>
+            </td>
+        </tr>
+    </table>
+    <button mat-stroked-button color="primary" [disabled]="!signup.valid">Submit</button>
+</form>
