@@ -36,7 +36,7 @@ export class SlideComponent implements OnInit {
       this.image_0 = this.data[0].image;
       this.image_1 = this.data[1].image;
       this.image_2 = this.data[2].image;
-      // console.log(this.data)
+      console.log(this.data)
     })
    }
   ngOnInit(): void {

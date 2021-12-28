@@ -12,7 +12,8 @@ export class SlideapiService {
   userOnClickData:any=[]
   constructor(private http: HttpClient) { }
   getData():Observable<Product[]>{
-    let url = "https://evening-forest-55820.herokuapp.com/";
+    // let url = "https://evening-forest-55820.herokuapp.com";
+    let url = " http://localhost:8080";
     return this.http.get<Product[]>(url)
     .pipe(
       map((res) => {
