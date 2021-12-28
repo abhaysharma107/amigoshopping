@@ -1,17 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { User } from '../_interface/user';
+import { Loguser } from '../_interface/loguser'
 
 @Injectable({
   providedIn: 'root'
 })
-export class SigndataService {
+export class LogindataService {
 
-  signup = environment.url + '/signup'
   constructor(private http:HttpClient) { }
 
-  sendSignUpData(user: User){
-    return this.http.post<any>(this.signup, user)
+  login = environment.url + '/login'
+
+  sendLoginData(login: Loguser){
+    return this.http.post<any>(this.login, login)
   }
-}
+} 
