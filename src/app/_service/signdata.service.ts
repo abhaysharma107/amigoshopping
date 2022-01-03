@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { User } from '../_interface/user';
 
 @Injectable({
@@ -7,10 +8,10 @@ import { User } from '../_interface/user';
 })
 export class SigndataService {
 
-  url = 'http://localhost:8080/signup'
+  signup = environment.url + '/signup'
   constructor(private http:HttpClient) { }
 
   sendSignUpData(user: User){
-    return this.http.post<any>(this.url, user)
+    return this.http.post<any>(this.signup, user)
   }
 }

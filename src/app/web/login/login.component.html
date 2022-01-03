@@ -1,19 +1,22 @@
-<form class="example-form">
+<form class="example-form" [formGroup]="login" (ngSubmit)="onSubmit()" novalidate>
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Email</mat-label>
-        <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
-        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-            Please enter a valid email address
-        </mat-error>
-        <mat-error *ngIf="emailFormControl.hasError('required')">
-            Email is <strong>required</strong>
-        </mat-error>
+        <input type="email" matInput formControlName="emailform" placeholder="Ex. pat@example.com">
+        <mat-error *ngIf="emailform.invalid && (emailform.dirty || emailform.touched)">
+            <mat-error *ngIf="emailform.hasError('email') && !emailform.hasError('required')">
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailform.hasError('required')"> 
+                Email is <strong>required</strong>
+            </mat-error>
+        </mat-error> 
     </mat-form-field>
     <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>Enter your password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'">
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
+      <button mat-stroked-button color="primary" [disabled]="!login.valid">Login</button>
 </form>

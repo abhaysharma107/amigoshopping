@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Product } from '../_interface/product';
 import { map } from 'rxjs/operators';
+import { environment } from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,10 @@ import { map } from 'rxjs/operators';
 export class SlideapiService {
   
   userOnClickData:any=[]
+  products = environment.url + '/products'
   constructor(private http: HttpClient) { }
   getData():Observable<Product[]>{
-    let url = "https://evening-forest-55820.herokuapp.com/";
-    return this.http.get<Product[]>(url)
+    return this.http.get<Product[]>(this.products)
     .pipe(
       map((res) => {
         // console.log(res);
