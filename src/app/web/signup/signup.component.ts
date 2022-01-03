@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { SigndataService } from 'src/app/_service/signdata.service';
+import {Router} from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -23,7 +25,10 @@ export class SignupComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   constructor(
     private fb:FormBuilder,
-    private signupDataSend:SigndataService) { }
+    private signupDataSend:SigndataService,
+    private route:Router,
+    private toastr: ToastrService
+    ) { }
  
   ngOnInit(): void {
     this.signup = this.fb.group({
@@ -55,10 +60,17 @@ export class SignupComponent implements OnInit {
   } 
 
   onSubmit(){
-    console.log(this.signup.value);
+    // console.log(this.signup.value);
     this.signupDataSend.sendSignUpData(this.signup.value).subscribe(
-      data => console.log('success', data),
-      error => console.error('error', Error)
+      data =>  {
+        this.toastr.success('Account Created');
+        this.route.navigate(['/home'])
+      }, 
+      error =>{
+        if (error.status == 422) {
+          this.toastr.error('Email already registered');
+        }
+      }
       
     )
   }

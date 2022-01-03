@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
+import { ToastrModule } from 'ngx-toastr';
 
 import {Router, RouterModule} from '@angular/router'
 import { AppRoutingModule } from './app-routing.module';
@@ -42,6 +43,7 @@ import { SignupComponent } from './web/signup/signup.component';
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
+    ToastrModule.forRoot(),
     BrowserAnimationsModule,
     RouterModule.forRoot([
       {path:'', component:SlideComponent},

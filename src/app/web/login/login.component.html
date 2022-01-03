@@ -6,7 +6,7 @@
             <mat-error *ngIf="emailform.hasError('email') && !emailform.hasError('required')">
                 Please enter a valid email address
             </mat-error>
-            <mat-error *ngIf="emailform.hasError('required')">
+            <mat-error *ngIf="emailform.hasError('required')"> 
                 Email is <strong>required</strong>
             </mat-error>
         </mat-error> 
@@ -18,5 +18,5 @@
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
-      <button mat-stroked-button color="primary" [disabled]="!login.valid">Submit</button>
+      <button mat-stroked-button color="primary" [disabled]="!login.valid">Login</button>
 </form>
