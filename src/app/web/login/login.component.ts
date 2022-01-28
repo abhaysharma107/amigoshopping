@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { LogindataService } from 'src/app/_service/logindata.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { CheckloginService } from 'src/app/_service/checklogin.service';
 
 @Component({
   selector: 'app-login',
@@ -12,12 +13,14 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent implements OnInit {
   login: any
   hide = true;
+  isLoggedIn = false
 
   constructor(
     private fb: FormBuilder,
     private loginDataSend: LogindataService,
     private route: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private checkLogin: CheckloginService
   ) {
 
   }
@@ -37,6 +40,8 @@ export class LoginComponent implements OnInit {
     // console.log(this.login.value);
     this.loginDataSend.sendLoginData(this.login.value).subscribe(
       data => {
+        this.isLoggedIn= true
+        this.checkLogin.changeMessage(this.isLoggedIn)
         this.toastr.success('Logged In');
         this.route.navigate(['/home'])
       },

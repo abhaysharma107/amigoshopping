@@ -1,16 +1,17 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink = "home">AMIGO SHOPPING</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" routerLink="home">AMIGO SHOPPING</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="">Electronic</a> 
+        <a class="nav-link" href="">Electronic</a>
         <a class="nav-link" href="">Men's Wear</a>
         <a class="nav-link" href="">Women's Wear</a>
         <a class="nav-link" href="">Jewelery</a>
-        <a class="nav-link" routerLink = '/cart'>View Cart</a>
+        <a class="nav-link" (click) = "checkLoginForCart()">View Cart</a>
       </div>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -29,12 +30,19 @@
   <li class="nav-item">
     <a class="nav-link" href="#">Buy Again</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" routerLink = "/login">Login</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" routerLink = "/signup">Sign Up</a>
-  </li>
+  <span *ngIf="!isLoggedIn">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/login">Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/signup">Sign Up</a>
+    </li>
+  </span>
+  <span *ngIf="isLoggedIn">
+    <li class="nav-item">
+      <a class="nav-link" (click)="logout()">Logout</a>
+    </li>
+  </span>
 </ul>
 <router-outlet></router-outlet>
 <!-- <app-slide></app-slide> -->
