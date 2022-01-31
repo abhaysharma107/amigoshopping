@@ -5,6 +5,7 @@ import { LoginComponent } from './web/login/login.component';
 import { ProductexplainComponent } from './web/productexplain/productexplain.component';
 import { SignupComponent } from './web/signup/signup.component';
 import { SlideComponent } from './web/slide/slide.component';
+import { LoginGuard } from './_guard/login.guard';
 
 const routes: Routes = [
   {path:'', component:SlideComponent},
@@ -12,8 +13,8 @@ const routes: Routes = [
   {path:'productexplain', component:ProductexplainComponent},
   {path:'home/productexplain', component:ProductexplainComponent},
   {path:'cart', component:CartComponent},
-  {path:'login', component:LoginComponent},
-  {path:'signup', component:SignupComponent}
+  {path:'login', canActivate:[LoginGuard], component:LoginComponent},
+  {path:'signup', canActivate:[LoginGuard],component:SignupComponent}
 ];
 
 @NgModule({
