@@ -19,6 +19,7 @@ import { ProductexplainComponent } from './web/productexplain/productexplain.com
 import { CartComponent } from './web/cart/cart.component';
 import { LoginComponent } from './web/login/login.component';
 import { SignupComponent } from './web/signup/signup.component';
+import { UseraccountComponent } from './web/useraccount/useraccount.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SignupComponent } from './web/signup/signup.component';
     ProductexplainComponent,
     CartComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    UseraccountComponent
   ],
   imports: [
     MatCardModule,

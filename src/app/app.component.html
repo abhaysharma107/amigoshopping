@@ -7,11 +7,12 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="">Electronic</a>
-        <a class="nav-link" href="">Men's Wear</a>
-        <a class="nav-link" href="">Women's Wear</a>
-        <a class="nav-link" href="">Jewelery</a>
+        <a class="nav-link">Electronic</a>
+        <a class="nav-link">Men's Wear</a>
+        <a class="nav-link">Women's Wear</a>
+        <a class="nav-link">Jewelery</a>
         <a class="nav-link" (click) = "checkLoginForCart()">View Cart</a>
+        <a class="nav-link" routerLink="/account" *ngIf="isLoggedIn">My Account</a>
       </div>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -22,13 +23,13 @@
 </nav>
 <ul class="nav justify-content-center">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Special Deal</a>
+    <a class="nav-link active" aria-current="page">Special Deal</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Best Seller</a>
+    <a class="nav-link">Best Seller</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Buy Again</a>
+    <a class="nav-link">Buy Again</a>
   </li>
   <span *ngIf="!isLoggedIn">
     <li class="nav-item">

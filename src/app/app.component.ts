@@ -19,7 +19,8 @@ export class AppComponent {
   }
 
   logout(){
-    this.isLoggedIn = false
+    this.isLoggedIn = false;
+    localStorage.removeItem('token')
     this.checkLogin.changeMessage(this.isLoggedIn)
     this.toster.success("Logged Out Successfully")
     this.router.navigate(['/home'])
