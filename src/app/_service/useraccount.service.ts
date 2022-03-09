@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -14,7 +14,13 @@ export class UseraccountService {
 
   constructor(private http:HttpClient) { }
   userData():Observable<UserProfile[]>{
-    return this.http.get<UserProfile[]>(this.userProfile)
+    // console.log(localStorage.getItem('token'));
+    
+    return this.http.get<UserProfile[]>(this.userProfile, {
+      headers: new HttpHeaders({
+        'authorization': 'Bearer '+ localStorage.getItem('token'),
+      })
+    })
     .pipe(
       map((res) => {
         // console.log(res);

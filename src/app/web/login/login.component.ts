@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
         this.toastr.success('Logged In');
         this.route.navigate(['/home'])
         let token = Object.values(data)
-        localStorage.setItem('token', JSON.stringify(token[0]))
+        localStorage.setItem('token', data.token)
       },
       error => {
         if (error.error.message == 'Email is not registered') {

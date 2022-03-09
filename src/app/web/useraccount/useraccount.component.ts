@@ -11,8 +11,8 @@ export class UseraccountComponent implements OnInit {
   constructor(private userProfile:UseraccountService) { }
 
   ngOnInit(): void {
-    console.log(
-     this.userProfile.userData())
+    this.userProfile.userData().subscribe(data => console.log(data)
+    )
   }
 
 }
