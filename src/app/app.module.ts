@@ -9,7 +9,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import { ToastrModule } from 'ngx-toastr';
 
-import {Router, RouterModule} from '@angular/router'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +19,7 @@ import { ProductexplainComponent } from './web/productexplain/productexplain.com
 import { CartComponent } from './web/cart/cart.component';
 import { LoginComponent } from './web/login/login.component';
 import { SignupComponent } from './web/signup/signup.component';
+import { UseraccountComponent } from './web/useraccount/useraccount.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { SignupComponent } from './web/signup/signup.component';
     ProductexplainComponent,
     CartComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    UseraccountComponent
   ],
   imports: [
     MatCardModule,
@@ -45,17 +46,8 @@ import { SignupComponent } from './web/signup/signup.component';
     AppRoutingModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    RouterModule.forRoot([
-      {path:'', component:SlideComponent},
-      {path:'home', component:SlideComponent},
-      {path:'productexplain', component:ProductexplainComponent},
-      {path:'home/productexplain', component:ProductexplainComponent},
-      {path:'cart', component:CartComponent},
-      {path:'login', component:LoginComponent},
-      {path:'signup', component:SignupComponent}
-    ])
   ],
-  providers: [],
+  providers: [], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
