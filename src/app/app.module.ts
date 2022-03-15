@@ -20,6 +20,7 @@ import { CartComponent } from './web/cart/cart.component';
 import { LoginComponent } from './web/login/login.component';
 import { SignupComponent } from './web/signup/signup.component';
 import { UseraccountComponent } from './web/useraccount/useraccount.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { UseraccountComponent } from './web/useraccount/useraccount.component';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
   ],
-  providers: [], 
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
