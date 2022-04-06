@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/_service/cart.service';
 import { SlideapiService } from '../../_service/slideapi.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { SlideapiService } from '../../_service/slideapi.service';
 export class ProductsComponent implements OnInit {
   data:any=[];
   
-  constructor(private list: SlideapiService) {
+  constructor(private list: SlideapiService,
+    private cartService: CartService) {
     this.list.getData().subscribe(data =>{
       this.data = data;
     
@@ -20,5 +22,12 @@ export class ProductsComponent implements OnInit {
   }
   userSlectedCard(datas:any){
     this.list.userOnClickData = datas
+  }
+  addToCard(data: any){
+    this.cartService.addToCart(data).subscribe(data => {
+      console.log(data);
+      
+    })
+    window.alert('Your product has been added to the cart!');
   }
 }

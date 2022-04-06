@@ -10,7 +10,7 @@ export class CheckloginService {
   currentMessage = this.messageSource.asObservable();
 
   constructor() { }
-
+ 
   changeMessage(message: boolean) {
     this.messageSource.next(message)
   }
