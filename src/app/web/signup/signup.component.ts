@@ -66,7 +66,8 @@ export class SignupComponent implements OnInit {
     // console.log(this.signup.value);
     this.signupDataSend.sendSignUpData(this.signup.value).subscribe(
       data =>  {
-        this.isLoggedIn= true
+        this.isLoggedIn= true;
+        console.log(data);
         this.checkLogin.changeMessage(this.isLoggedIn)
         this.toastr.success('Account Created');
         this.route.navigate(['/home'])
