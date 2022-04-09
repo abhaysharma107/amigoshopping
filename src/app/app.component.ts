@@ -13,11 +13,10 @@ export class AppComponent {
   constructor(
     private toster:ToastrService,
     private checkLogin: CheckloginService,
-    private router: Router
+    private router: Router,
   ){
     this.checkLogin.currentMessage.subscribe(message => {this.isLoggedIn = message})
   }
-
   logout(){
     this.isLoggedIn = false;
     localStorage.removeItem('token')

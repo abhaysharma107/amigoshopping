@@ -4,6 +4,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { SigndataService } from 'src/app/_service/signdata.service';
 import {Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { CheckloginService } from 'src/app/_service/checklogin.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -22,12 +23,14 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class SignupComponent implements OnInit {
   signup:any
   hide = true;
+  isLoggedIn = false;
   matcher = new MyErrorStateMatcher();
   constructor(
     private fb:FormBuilder,
     private signupDataSend:SigndataService,
     private route:Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private checkLogin: CheckloginService
     ) { }
  
   ngOnInit(): void {
@@ -63,8 +66,13 @@ export class SignupComponent implements OnInit {
     // console.log(this.signup.value);
     this.signupDataSend.sendSignUpData(this.signup.value).subscribe(
       data =>  {
+        this.isLoggedIn= true;
+        console.log(data);
+        this.checkLogin.changeMessage(this.isLoggedIn)
         this.toastr.success('Account Created');
         this.route.navigate(['/home'])
+        let token = Object.values(data)
+        localStorage.setItem('token', data.token)
       }, 
       error =>{
         if (error.status == 422) {
