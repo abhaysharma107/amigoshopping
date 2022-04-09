@@ -35,7 +35,7 @@ export class OtpverificationComponent implements OnInit {
     this.otpveryservice.sendOTP(this.otp.value).subscribe(data => {
       console.log(data);
       
-      // if (data.otpOutput === 'Matched') {
+      if (data.token) {
         this.isLoggedIn= true;
         console.log(data);
         this.checkLogin.changeMessage(this.isLoggedIn)
@@ -43,7 +43,7 @@ export class OtpverificationComponent implements OnInit {
         this.route.navigate(['/home'])
         let token = Object.values(data)
         localStorage.setItem('token', data.token)
-      // }
+      }
     }, error => {
       console.log(error);
       
