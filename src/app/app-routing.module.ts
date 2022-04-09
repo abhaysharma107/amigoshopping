@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './web/cart/cart.component';
 import { LoginComponent } from './web/login/login.component';
+import { OtpverificationComponent } from './web/otpverification/otpverification.component';
 import { ProductexplainComponent } from './web/productexplain/productexplain.component';
 import { SignupComponent } from './web/signup/signup.component';
 import { SlideComponent } from './web/slide/slide.component';
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:'cart', component:CartComponent},
   {path:'login', canActivate:[LoginGuard], component:LoginComponent},
   {path:'signup', canActivate:[LoginGuard],component:SignupComponent},
-  {path:'account', component:UseraccountComponent }
+  {path:'account', component:UseraccountComponent },
+  {path:'otpverification', component:OtpverificationComponent}
 ];
 
 @NgModule({
