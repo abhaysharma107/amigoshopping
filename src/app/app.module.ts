@@ -21,6 +21,7 @@ import { LoginComponent } from './web/login/login.component';
 import { SignupComponent } from './web/signup/signup.component';
 import { UseraccountComponent } from './web/useraccount/useraccount.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { OtpverificationComponent } from './web/otpverification/otpverification.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     CartComponent,
     LoginComponent,
     SignupComponent,
-    UseraccountComponent
+    UseraccountComponent,
+    OtpverificationComponent
   ],
   imports: [
     MatCardModule,
