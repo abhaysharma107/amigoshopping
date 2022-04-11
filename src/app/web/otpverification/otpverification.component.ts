@@ -46,7 +46,12 @@ export class OtpverificationComponent implements OnInit {
       }
     }, error => {
       console.log(error);
-      
+      if (error.status === 400) {
+        this.toastr.error('Wrong OTP')
+      }
+      if (error.status === 422) {
+        this.toastr.error('Email Already Registered')
+      }
     })
   }
 }
