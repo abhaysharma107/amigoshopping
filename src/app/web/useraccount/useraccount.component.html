@@ -1,1 +1,10 @@
-<p>useraccount works!</p>
+<div *ngIf="!edit">
+    <p>Welcome {{userName}}</p>
+    <p>Your Email Address is {{userEmail}}</p>
+    <button (click)="editingProfile()">Edit Profile</button>
+</div>
+<form *ngIf="edit" [formGroup]="editUserInfo" (ngSubmit)="onSubmit()">
+    <input type="text" name="" id="" placeholder="Name" formControlName = 'updatedName'>
+    <input type="email" name="" id="" placeholder="Email" formControlName = 'updatedEmail'>
+    <button mat-stroked-button color="primary" [disabled]="!editUserInfo.valid">Update</button>
+</form>
