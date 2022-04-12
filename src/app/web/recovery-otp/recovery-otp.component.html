@@ -1,0 +1,7 @@
+<form class="example-form" [formGroup]="otp" (ngSubmit)="onSubmit()" novalidate>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Enter OTP Sent To Your Email Address</mat-label>
+        <input matInput formControlName="otpinputed" type="number">
+    </mat-form-field>
+    <button mat-stroked-button color="primary" [disabled]="!otp.valid">Send OTP</button>
+</form>
