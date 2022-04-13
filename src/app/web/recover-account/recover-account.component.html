@@ -1,0 +1,7 @@
+<form class="example-form" [formGroup]="recoverAccountForm" (ngSubmit)="onSubmit()" novalidate>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Enter Your Email Address</mat-label>
+        <input matInput formControlName="Email">
+    </mat-form-field>
+    <button mat-stroked-button color="primary" [disabled]="!recoverAccountForm.valid">Next</button>
+</form>

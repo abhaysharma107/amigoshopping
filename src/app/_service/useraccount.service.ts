@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { EditUser } from '../_interface/editUser';
 import { UserProfile } from '../_interface/userProfile';
 
 @Injectable({
@@ -11,9 +12,10 @@ import { UserProfile } from '../_interface/userProfile';
 export class UseraccountService {
 
   userProfile = environment.url + '/userProfile'
+  editUserProfile = environment.url + '/editProfile'
 
   constructor(private http:HttpClient) { }
-  userData():Observable<UserProfile[]>{
+  userData():Observable<any>{
     // console.log(localStorage.getItem('token'));
     
     return this.http.get<UserProfile[]>(this.userProfile, {
@@ -27,5 +29,13 @@ export class UseraccountService {
         return <UserProfile[]> res
       })
     )
+  }
+
+ editUserData(editUser: EditUser){
+    return this.http.post<any>(this.editUserProfile, editUser, {
+      headers: new HttpHeaders({
+        'authorization': 'Bearer '+ localStorage.getItem('token'),
+      })
+    })
   }
 }

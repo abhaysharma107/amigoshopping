@@ -22,6 +22,9 @@ import { SignupComponent } from './web/signup/signup.component';
 import { UseraccountComponent } from './web/useraccount/useraccount.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { OtpverificationComponent } from './web/otpverification/otpverification.component';
+import { RecoverAccountComponent } from './web/recover-account/recover-account.component';
+import { RecoveryOTPComponent } from './web/recovery-otp/recovery-otp.component';
+import { NewPasswordSetupComponent } from './web/new-password-setup/new-password-setup.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { OtpverificationComponent } from './web/otpverification/otpverification.
     LoginComponent,
     SignupComponent,
     UseraccountComponent,
-    OtpverificationComponent
+    OtpverificationComponent,
+    RecoverAccountComponent,
+    RecoveryOTPComponent,
+    NewPasswordSetupComponent
   ],
   imports: [
     MatCardModule,
