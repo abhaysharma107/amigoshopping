@@ -33,10 +33,16 @@ export class RecoveryOTPComponent implements OnInit {
 
   onSubmit(){
     console.log(this.otp.value);
+    this.toastr.info('Please Wait, Processing')
     this.otpveryservice.sendOTP(this.otp.value).subscribe(data => {
       console.log(data);
       if (data[0] === 'Verified') {
+        this.toastr.success('Success')
         this.route.navigate(['/newpassword'])
+      } else {
+        console.log(true);
+        
+        this.toastr.error('Wrong OTP')
       }
     })
   }

@@ -33,6 +33,7 @@ export class RecoverAccountComponent implements OnInit {
 
   onSubmit(){
     console.log(this.recoverAccountForm.value);
+    this.toastr.info('Please Wait, Processing')
     this.recoverAccountService.sendLoginData(this.recoverAccountForm.value).subscribe(data => {
       console.log(data);
       

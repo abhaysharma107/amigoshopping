@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { UseraccountService } from 'src/app/_service/useraccount.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { UseraccountService } from 'src/app/_service/useraccount.service';
 export class UseraccountComponent implements OnInit {
   constructor(
     private userProfile: UseraccountService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastr:ToastrService
   ) {}
   userName: string = '';
   userEmail: string = '';
@@ -36,6 +38,7 @@ export class UseraccountComponent implements OnInit {
 
   onSubmit(){
     console.log(this.editUserInfo.value);
+    this.toastr.info('Please Wait, Processing')
     this.userProfile.editUserData(this.editUserInfo.value).subscribe(data => {
       console.log(data);
       

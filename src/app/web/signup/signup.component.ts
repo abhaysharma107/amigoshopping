@@ -66,6 +66,7 @@ export class SignupComponent implements OnInit {
 
   onSubmit(){
     // console.log(this.signup.value);
+    this.toastr.info('Please Wait, Processing')
     this.signupDataSend.sendSignUpData(this.signup.value).subscribe(
       data =>  {
         console.log(data);

@@ -53,7 +53,10 @@ import { NewPasswordSetupComponent } from './web/new-password-setup/new-password
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      autoDismiss:true,
+      maxOpened:1
+    }),
     BrowserAnimationsModule,
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],

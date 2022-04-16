@@ -32,6 +32,7 @@ export class OtpverificationComponent implements OnInit {
 
   onSubmit(){
     console.log(this.otp.value);
+    this.toastr.info('Please Wait, Processing')
     this.otpveryservice.sendOTP(this.otp.value).subscribe(data => {
       console.log(data);
       
