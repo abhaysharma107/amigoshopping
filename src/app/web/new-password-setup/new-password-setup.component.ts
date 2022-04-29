@@ -47,7 +47,6 @@ get password() {return this.changePasswordForm.get('password');}
     this.toastr.info('Please Wait, Processing')
     this.changedPassword.sendChangedPassword(this.changePasswordForm.value).subscribe(data => {
       console.log(data);
-      
     })
   }
 }

@@ -39,10 +39,8 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     // console.log(this.login.value);
     this.toastr.info('Please Wait, Processing')
-    console.time()
     this.loginDataSend.sendLoginData(this.login.value).subscribe(
       data => {
-       console.timeEnd()
         this.isLoggedIn= true
         this.checkLogin.changeMessage(this.isLoggedIn)
         this.toastr.success('Logged In');
@@ -56,6 +54,8 @@ export class LoginComponent implements OnInit {
         } else if (error.error.message == 'Wrong password.') {
           this.toastr.error('Wrong password');
         }
+        console.log(error);
+        
       }
     )
   }

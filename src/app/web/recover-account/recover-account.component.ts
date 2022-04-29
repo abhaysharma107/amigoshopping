@@ -38,6 +38,7 @@ export class RecoverAccountComponent implements OnInit {
       console.log(data);
       
      if (data[0] === 'Verify OTP') {
+      this.toastr.info('OTP Sent Successfully')
        this.route.navigate(['/recoveryOTP'])
      }
     })
