@@ -66,25 +66,18 @@ export class SignupComponent implements OnInit {
 
   onSubmit(){
     // console.log(this.signup.value);
+    this.toastr.info('Please Wait, Processing')
     this.signupDataSend.sendSignUpData(this.signup.value).subscribe(
       data =>  {
-        console.log(data);
-        
+        // console.log(data);
+        this.toastr.info("OTP Sent Scuccessfully")
           this.route.navigate(['/otpverification'])
-        // else if (!data.otpVerification) {
-        //   this.isLoggedIn= true;
-        //   console.log(data);
-        //   this.checkLogin.changeMessage(this.isLoggedIn)
-        //   this.toastr.success('Account Created');
-        //   this.route.navigate(['/home'])
-        //   let token = Object.values(data)
-        //   localStorage.setItem('token', data.token)
-        // }
-       
       }, 
       error =>{
         if (error.status == 422) {
           this.toastr.error('Email already registered');
+        } else {
+          this.toastr.error("Something went wrong")
         }
       }
       

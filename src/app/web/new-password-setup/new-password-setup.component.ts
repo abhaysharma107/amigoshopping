@@ -44,9 +44,9 @@ export class NewPasswordSetupComponent implements OnInit {
 get password() {return this.changePasswordForm.get('password');}
   onSubmit() {
     console.log(this.changePasswordForm.value);
+    this.toastr.info('Please Wait, Processing')
     this.changedPassword.sendChangedPassword(this.changePasswordForm.value).subscribe(data => {
       console.log(data);
-      
     })
   }
 }
