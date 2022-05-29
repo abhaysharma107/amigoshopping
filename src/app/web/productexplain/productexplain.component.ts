@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SlideapiService } from '../../_service/slideapi.service';
+import { ProductsService } from '../../_service/products.service';
 import {Product} from '../../_interface/product'
 import {CartService} from '../../_service/cart.service'
 
@@ -14,10 +14,10 @@ export class ProductexplainComponent implements OnInit {
   des:any=[];
   img:any=[];
   constructor(
-    private list:SlideapiService,
+    private productService:ProductsService,
     private cartService:CartService
     ) { 
-    this.data = this.list.userOnClickData;
+    this.data = this.productService.userOnClickData;
     this.img = this.data.image;
     this.title = this.data.title;
     this.des = this.data.description;
