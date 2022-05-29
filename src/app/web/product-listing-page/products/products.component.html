@@ -8,7 +8,7 @@
             <a routerLink="home/productexplain">
                 <a routerLink="productexplain" (click)="userSlectedCard(products)">
                     <h4>{{products.title}}</h4>
-                    <p>${{products.price}}</p>
+                    <p>₹{{products.price}}</p>
                 </a>
             </a>
             <span (click)="addToCard(products)"><button>Add To Card</button></span>

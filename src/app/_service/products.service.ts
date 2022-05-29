@@ -12,8 +12,8 @@ export class ProductsService {
   // products = environment.url + ''
   products = environment.url + '/products'
   electronic = environment.url + '/products/electronic'
-  menswear = environment.url + '/products/menswear'
-  womenswear = environment.url + '/products/womenswear'
+  menswear = environment.url + '/products/mensclothing'
+  womenswear = environment.url + '/products/womensclothing'
   jewelery = environment.url + '/products/jewelery'
 
   userOnClickData:any=[]

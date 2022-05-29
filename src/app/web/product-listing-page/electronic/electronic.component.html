@@ -1,1 +1,18 @@
-<p>electronic works!</p>
+<div class="heading" id="heading1">
+    <p class="headingtext">Electronic Products</p>
+</div>
+<div class="cards">
+    <div class="card" *ngFor="let products of product">
+        <img src="{{products.image}}" alt="Product" id="productimg">
+        <div class="container">
+            <a routerLink="home/productexplain">
+                <a routerLink="productexplain" (click)="userSlectedCard(products)">
+                    <h4>{{products.title}}</h4>
+                    <p>₹{{products.price}}</p>
+                </a>
+            </a>
+            <span (click)="addToCard(products)"><button>Add To Card</button></span>
+            <span> <button (click)="buyNow(products)">Buy Now</button></span>
+        </div>
+    </div>
+</div>
