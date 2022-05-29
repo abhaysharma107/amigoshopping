@@ -11,7 +11,8 @@ import { environment } from '../../environments/environment'
 export class SlideapiService {
   
   userOnClickData:any=[]
-  products = environment.url + '/products'
+  products = environment.url + ''
+  // products = environment.url + '/products'
   constructor(private http: HttpClient) { }
   getData():Observable<Product[]>{
     return this.http.get<Product[]>(this.products)

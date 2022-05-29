@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CartComponent } from './web/cart/cart.component';
-import { LoginComponent } from './web/login/login.component';
-import { NewPasswordSetupComponent } from './web/new-password-setup/new-password-setup.component';
-import { OtpverificationComponent } from './web/otpverification/otpverification.component';
+import { CartComponent } from './web/user/cart/cart.component';
+import { LoginComponent } from './web/auth/login/login.component';
+import { NewPasswordSetupComponent } from './web/auth/new-password-setup/new-password-setup.component';
+import { OtpverificationComponent } from './web/auth/otpverification/otpverification.component';
 import { ProductexplainComponent } from './web/productexplain/productexplain.component';
-import { RecoverAccountComponent } from './web/recover-account/recover-account.component';
-import { RecoveryOTPComponent } from './web/recovery-otp/recovery-otp.component';
-import { SignupComponent } from './web/signup/signup.component';
-import { SlideComponent } from './web/slide/slide.component';
-import { UseraccountComponent } from './web/useraccount/useraccount.component';
+import { RecoverAccountComponent } from './web/auth/recover-account/recover-account.component';
+import { RecoveryOTPComponent } from './web/auth/recovery-otp/recovery-otp.component';
+import { SignupComponent } from './web/auth/signup/signup.component';
+import { SlideComponent } from './web/product-listing-page/slide/slide.component';
+import { UseraccountComponent } from './web/user/useraccount/useraccount.component';
 import { LoginGuard } from './_guard/login.guard';
 
 const routes: Routes = [

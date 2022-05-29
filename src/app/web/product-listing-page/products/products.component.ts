@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/_service/cart.service';
 import { CheckloginService } from 'src/app/_service/checklogin.service';
-import { SlideapiService } from '../../_service/slideapi.service';
+import { SlideapiService } from '../../../_service/slideapi.service';
 
 @Component({
   selector: 'app-products',
