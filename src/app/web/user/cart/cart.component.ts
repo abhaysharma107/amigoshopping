@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CheckloginService } from 'src/app/_service/checklogin.service';
-import {CartService} from '../../_service/cart.service'
+import {CartService} from '../../../_service/cart.service'
 
 @Component({ 
   selector: 'app-cart',

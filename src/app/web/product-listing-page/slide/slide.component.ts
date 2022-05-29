@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SlideapiService } from '../../_service/slideapi.service';
+import { SlideapiService } from '../../../_service/slideapi.service';
 
 @Component({
   selector: 'app-slide',

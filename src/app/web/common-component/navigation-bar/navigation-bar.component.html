@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="home">AMIGO SHOPPING</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link">Electronic</a>
+        <a class="nav-link">Men's Wear</a>
+        <a class="nav-link">Women's Wear</a>
+        <a class="nav-link">Jewelery</a>
+        <a class="nav-link" (click) = "checkLoginForCart()">View Cart</a>
+        <a class="nav-link" routerLink="/account" *ngIf="isLoggedIn">My Account</a>
+      </div>
+    </div>
+    <div *ngIf="!isLoggedIn" class="d-flex">
+        <a class="nav-link" routerLink="/login">Login</a>
+        <a class="nav-link" routerLink="/signup">Sign Up</a>
+    </div>
+    <div *ngIf="isLoggedIn">
+        <a class="nav-link" (click)="logout()">Logout</a>
+    </div>
+  </div>
+</nav>
