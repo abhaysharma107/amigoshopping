@@ -11,25 +11,32 @@ import { SignupComponent } from './web/auth/signup/signup.component';
 import { SlideComponent } from './web/product-listing-page/slide/slide.component';
 import { UseraccountComponent } from './web/user/useraccount/useraccount.component';
 import { LoginGuard } from './_guard/login.guard';
+import { ElectronicComponent } from './web/product-listing-page/electronic/electronic.component';
+import { MensWearComponent } from './web/product-listing-page/mens-wear/mens-wear.component';
+import { WomensWearComponent } from './web/product-listing-page/womens-wear/womens-wear.component';
+import { JeweleryComponent } from './web/product-listing-page/jewelery/jewelery.component';
 
 const routes: Routes = [
-  {path:'', component:SlideComponent},
-  {path:'home', component:SlideComponent},
-  {path:'productexplain', component:ProductexplainComponent},
-  {path:'home/productexplain', component:ProductexplainComponent},
-  {path:'cart', component:CartComponent},
-  {path:'login', canActivate:[LoginGuard], component:LoginComponent},
-  {path:'signup', canActivate:[LoginGuard],component:SignupComponent},
-  {path:'account', component:UseraccountComponent },
-  {path:'otpverification', component:OtpverificationComponent},
-  {path:'recoveraccount', component:RecoverAccountComponent},
-  {path:'recoveryOTP',component:RecoveryOTPComponent},
-  {path:'newpassword', component: NewPasswordSetupComponent}
+  { path: '', component: SlideComponent },
+  { path: 'home', component: SlideComponent },
+  { path: 'productexplain', component: ProductexplainComponent },
+  { path: 'electronic', component: ElectronicComponent },
+  { path: 'menswear', component: MensWearComponent },
+  { path: 'womenswear', component: WomensWearComponent },
+  { path: 'jewelwey', component: JeweleryComponent },
+  { path: 'home/productexplain', component: ProductexplainComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'login', canActivate: [LoginGuard], component: LoginComponent },
+  { path: 'signup', canActivate: [LoginGuard], component: SignupComponent },
+  { path: 'account', component: UseraccountComponent },
+  { path: 'otpverification', component: OtpverificationComponent },
+  { path: 'recoveraccount', component: RecoverAccountComponent },
+  { path: 'recoveryOTP', component: RecoveryOTPComponent },
+  { path: 'newpassword', component: NewPasswordSetupComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { 
-}
+export class AppRoutingModule {}

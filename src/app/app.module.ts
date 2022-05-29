@@ -29,6 +29,10 @@ import { RecoverAccountComponent } from './web/auth/recover-account/recover-acco
 import { RecoveryOTPComponent } from './web/auth/recovery-otp/recovery-otp.component';
 import { NewPasswordSetupComponent } from './web/auth/new-password-setup/new-password-setup.component';
 import { NavigationBarComponent } from './web/common-component/navigation-bar/navigation-bar.component';
+import { ElectronicComponent } from './web/product-listing-page/electronic/electronic.component';
+import { MensWearComponent } from './web/product-listing-page/mens-wear/mens-wear.component';
+import { WomensWearComponent } from './web/product-listing-page/womens-wear/womens-wear.component';
+import { JeweleryComponent } from './web/product-listing-page/jewelery/jewelery.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,11 @@ import { NavigationBarComponent } from './web/common-component/navigation-bar/na
     RecoverAccountComponent,
     RecoveryOTPComponent,
     NewPasswordSetupComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    ElectronicComponent,
+    MensWearComponent,
+    WomensWearComponent,
+    JeweleryComponent
   ],
   imports: [
     MatCardModule,

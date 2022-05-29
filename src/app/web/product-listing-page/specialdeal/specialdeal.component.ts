@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SlideapiService } from '../../../_service/slideapi.service';
+import { ProductsService } from '../../../_service/products.service';
 
 @Component({
   selector: 'app-specialdeal',
@@ -8,7 +8,7 @@ import { SlideapiService } from '../../../_service/slideapi.service';
 })
 export class SpecialdealComponent implements OnInit {
   public now: Date = new Date();
-  data:any = [];
+  product:any = [];
   title_3:any = [];
   title_4:any = [];
   title_5:any = [];
@@ -21,27 +21,23 @@ export class SpecialdealComponent implements OnInit {
   image_4:any = [];
   image_5:any = [];
   image_6:any = [];
-  constructor(private list:SlideapiService) {
-    //special deal timing
-      //special deal timing till here
-      //api subscribe data
-    this.list.getData().subscribe(data =>{
-      this.data = data;
-      this.title_3= this.data[3].category;
-      this.title_4 = this.data[6].category;
-      this.title_5 = this.data[13].category;
-      this.title_6 = this.data[19].category;
-      this.price_3 = this.data[3].price;
-      this.price_4 = this.data[6].price;
-      this.price_5 = this.data[13].price;
-      this.price_6 = this.data[19].price;
-      this.image_3 = this.data[3].image;
-      this.image_4 = this.data[6].image;
-      this.image_5 = this.data[13].image;
-      this.image_6 = this.data[19].image;
+  constructor(private productService:ProductsService) {
+    this.productService.getProducts().subscribe(data =>{
+      this.product = data;
+      this.title_3= this.product[3].category;
+      this.title_4 = this.product[6].category;
+      this.title_5 = this.product[13].category;
+      this.title_6 = this.product[19].category;
+      this.price_3 = this.product[3].price;
+      this.price_4 = this.product[6].price;
+      this.price_5 = this.product[13].price;
+      this.price_6 = this.product[19].price;
+      this.image_3 = this.product[3].image;
+      this.image_4 = this.product[6].image;
+      this.image_5 = this.product[13].image;
+      this.image_6 = this.product[19].image;
    }
    )
-  //subscribe till here
   }
 
   ngOnInit(): void {

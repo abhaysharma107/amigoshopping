@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/_service/cart.service';
 import { CheckloginService } from 'src/app/_service/checklogin.service';
-import { SlideapiService } from '../../../_service/slideapi.service';
+import { ProductsService } from '../../../_service/products.service';
 
 @Component({
   selector: 'app-products',
@@ -11,16 +11,16 @@ import { SlideapiService } from '../../../_service/slideapi.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  data:any=[];
+  product:any=[];
   isLoggedIn=false;
-  constructor(private list: SlideapiService,
+  constructor(private productsService: ProductsService,
     private cartService: CartService,
     private checkLoginService: CheckloginService,
     private toster: ToastrService,
     private router: Router
     ) {
-    this.list.getData().subscribe(data =>{
-      this.data = data;
+    this.productsService.getProducts().subscribe(data =>{
+      this.product = data;
     })
     this.checkLoginService.currentMessage.subscribe(message => {this.isLoggedIn = message})
   }
@@ -28,7 +28,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
   }
   userSlectedCard(datas:any){
-    this.list.userOnClickData = datas
+    this.productsService.userOnClickData = datas
   }
   addToCard(data: any){
     if (this.isLoggedIn == true) {

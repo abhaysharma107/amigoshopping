@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SlideapiService } from '../../../_service/slideapi.service';
+import { ProductsService } from '../../../_service/products.service';
 
 @Component({
   selector: 'app-slide',
@@ -7,7 +7,7 @@ import { SlideapiService } from '../../../_service/slideapi.service';
   styleUrls: ['./slide.component.css']
 })
 export class SlideComponent implements OnInit {
-  data:any = [];
+  product:any = [];
   data_1:any = [];
   data_2:any =[];
   data_3:any = [];
@@ -21,27 +21,27 @@ export class SlideComponent implements OnInit {
   image_1:any = [];
   image_2:any = [];
 
-  constructor(private list:SlideapiService) {
-    this.list.getData().subscribe(data =>{
-      this.data = data;
-      this.data_1 = this.data[0]
-      this.data_2 = this.data[1]
-      this.data_3 = this.data[2]
-      this.title_0= this.data[0].title;
-      this.title_1 = this.data[1].title;
-      this.title_2 = this.data[2].title;
-      this.des_0 = this.data[0].description;
-      this.des_1 = this.data[1].description;
-      this.des_2 = this.data[2].description;
-      this.image_0 = this.data[0].image;
-      this.image_1 = this.data[1].image;
-      this.image_2 = this.data[2].image;
-      console.log(this.data)
+  constructor(private productSerivce:ProductsService) {
+    this.productSerivce.getProducts().subscribe(data =>{
+      this.product = data;
+      this.data_1 = this.product[0]
+      this.data_2 = this.product[1]
+      this.data_3 = this.product[2]
+      this.title_0= this.product[0].title;
+      this.title_1 = this.product[1].title;
+      this.title_2 = this.product[2].title;
+      this.des_0 = this.product[0].description;
+      this.des_1 = this.product[1].description;
+      this.des_2 = this.product[2].description;
+      this.image_0 = this.product[0].image;
+      this.image_1 = this.product[1].image;
+      this.image_2 = this.product[2].image;
+      console.log(this.product)
     })
    }
   ngOnInit(): void {
   }
-  userSlectedCard(datas:any){
-    this.list.userOnClickData = datas; 
+  userSlectedCard(data:any){
+    this.productSerivce.userOnClickData = data; 
   }
 }
