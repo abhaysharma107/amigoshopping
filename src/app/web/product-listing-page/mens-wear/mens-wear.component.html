@@ -2,7 +2,7 @@
     <p class="headingtext">Men's Wear</p>
 </div>
 <div class="cards">
-    <div class="card" *ngFor="let products of product">
+    <div class="card" *ngFor="let products of product; let productNumber = index">
         <img src="{{products.image}}" alt="Product" id="productimg">
         <div class="container">
             <a routerLink="home/productexplain">
@@ -11,8 +11,28 @@
                     <p>₹{{products.price}}</p>
                 </a>
             </a>
-            <span (click)="addToCard(products)"><button>Add To Card</button></span>
-            <span> <button (click)="buyNow(products)">Buy Now</button></span>
+            
         </div>
+        <div class="d-flex flex-wrap align-items-center justify-content-center">
+            <span class="m-2" *ngIf="!productNumberReturn.includes(productNumber)"
+              ><button
+                mat-stroked-button
+                color="primary"
+                (click)="addToCard(products, productNumber)"
+              >
+                Add To Cart
+              </button></span
+            >
+            <span class="m-2" *ngIf="productNumberReturn.includes(productNumber)"
+              ><button mat-stroked-button disabled color="primary">
+                In Cart
+              </button></span
+            >
+            <span class="m-2">
+              <button mat-raised-button color="warn" (click)="buyNow(products)">
+                Buy Now
+              </button></span
+            >
+          </div>
     </div>
 </div>

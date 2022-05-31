@@ -6,8 +6,27 @@
         <h2>{{title}}</h2>
         <p class="text">{{des}}</p>
   <div class="example-button-row">
-    <button mat-stroked-button color="primary" (click) = 'addToCart(data)'>Add To Cart</button>
-    <button mat-raised-button color="warn">Buy Now</button>
+    <div class="d-flex flex-wrap align-items-center justify-content-center">
+        <span class="m-2" *ngIf="inCart == false"
+          ><button
+            mat-stroked-button
+            color="primary"
+            (click)="addToCart(product)"
+          >
+            Add To Cart
+          </button></span
+        >
+        <span class="m-2" *ngIf="inCart == true"
+          ><button mat-stroked-button disabled color="primary">
+            In Cart
+          </button></span
+        >
+        <span class="m-2">
+          <button mat-raised-button color="warn" (click)="buyNow(product)">
+            Buy Now
+          </button></span
+        >
+      </div>
     </div>
     <div class="des">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error pariatur consequatur atque provident quod officia soluta aliquam vitae nobis exercitationem laborum consectetur sequi ipsum, voluptatibus expedita doloremque sit repudiandae adipisci?

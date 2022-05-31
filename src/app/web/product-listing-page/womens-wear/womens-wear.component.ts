@@ -13,6 +13,7 @@ import { ProductsService } from 'src/app/_service/products.service';
 export class WomensWearComponent implements OnInit {
   product:any=[];
   isLoggedIn=false;
+  productNumberReturn:Array<any> = [];
   constructor(private productsService: ProductsService,
     private cartService: CartService,
     private checkLoginService: CheckloginService,
@@ -30,12 +31,13 @@ export class WomensWearComponent implements OnInit {
   userSlectedCard(datas:any){
     this.productsService.userOnClickData = datas
   }
-  addToCard(data: any){
+  addToCard(data: any, productNumber:number){
     if (this.isLoggedIn == true) {
       this.cartService.addToCart(data).subscribe(data => {
-        console.log(data);
+        this.productNumberReturn.push(productNumber);
+        this.toster.success('Your product has been added to the cart!');  
       })
-      window.alert('Your product has been added to the cart!');
+  
     }
     else {
       this.toster.warning("Please Login First")
