@@ -41,6 +41,6 @@ export class CartComponent implements OnInit {
     }
   }
   userSlectedCard(data:any){
-    this.productsService.userOnClickData = data
+    
   }
 }

@@ -25,7 +25,9 @@ export class ElectronicComponent implements OnInit {
   ngOnInit(): void {
     this.productsService.getProductsElectronic().subscribe((data) => {
       this.product = data;
-      this.checkForInCart(this.product);
+      if (this.isLoggedIn) {
+        this.checkForInCart(this.product);
+        }
     });
     this.checkLoginService.currentMessage.subscribe((message) => {
       this.isLoggedIn = message;
@@ -44,8 +46,8 @@ export class ElectronicComponent implements OnInit {
       }
     });
   }
-  userSlectedCard(data:any){
-    this.productsService.userOnClickData = data
+  userSlectedCard(product: any) {
+    this.router.navigateByUrl(`/home/productexplain?productId=${product}`);
   }
   addToCard(data: any, productNumber:number){
     if (this.isLoggedIn == true) {

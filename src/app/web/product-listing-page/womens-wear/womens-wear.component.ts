@@ -25,7 +25,9 @@ export class WomensWearComponent implements OnInit {
   ngOnInit(): void {
     this.productsService.getProductsWomensWear().subscribe((data) => {
       this.product = data;
-      this.checkForInCart(this.product);
+      if (this.isLoggedIn) {
+        this.checkForInCart(this.product);
+        }
     });
     this.checkLoginService.currentMessage.subscribe((message) => {
       this.isLoggedIn = message;
@@ -45,8 +47,8 @@ export class WomensWearComponent implements OnInit {
       }
     });
   }
-  userSlectedCard(datas:any){
-    this.productsService.userOnClickData = datas
+  userSlectedCard(product: any) {
+    this.router.navigateByUrl(`/home/productexplain?productId=${product}`);
   }
   addToCard(data: any, productNumber:number){
     if (this.isLoggedIn == true) {
