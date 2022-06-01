@@ -1,7 +1,29 @@
-<h3>Cart</h3>
-
-<div class="cart-item" *ngFor="let item of items">
-    <img src="{{item.image}}" alt=""id="productimg">
-  <span>{{ item.title }}</span>
-  <span>{{ item.price }}</span>
+<div class="heading" id="heading1">
+  <p class="headingtext">Your Cart</p>
 </div>
+<div class="cards" *ngIf="cartItem !== undefined; else emptyCart">
+  
+    <div class="card" *ngFor="let cart of cartItem">
+      <img [src]="cart.image" alt="Product" id="productimg" />
+      <div class="container">
+        <a routerLink="home/productexplain">
+          <a routerLink="productexplain" (click)="userSlectedCard(cart)">
+            <h4>{{ cart.title }}</h4>
+            <p>₹{{ cart.price }}</p>
+          </a>
+        </a>
+      </div>
+      <div class="d-flex flex-wrap align-items-center justify-content-center">
+        <span class="m-2">
+          <button mat-raised-button color="warn" (click)="buyNow(cart)">
+            Buy Now
+          </button></span
+        >
+      </div>
+  </div>
+</div>
+<ng-template #emptyCart>
+  <h3 class="text-center">
+    Your Cart Is Empty!!!
+  </h3>
+</ng-template>

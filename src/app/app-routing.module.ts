@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'electronic', component: ElectronicComponent },
   { path: 'menswear', component: MensWearComponent },
   { path: 'womenswear', component: WomensWearComponent },
-  { path: 'jewelwey', component: JeweleryComponent },
+  { path: 'jewelery', component: JeweleryComponent },
   { path: 'home/productexplain', component: ProductexplainComponent },
   { path: 'cart', component: CartComponent },
   { path: 'login', canActivate: [LoginGuard], component: LoginComponent },

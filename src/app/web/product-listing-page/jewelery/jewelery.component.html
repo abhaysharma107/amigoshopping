@@ -1,1 +1,37 @@
-<p>jewelery works!</p>
+<div class="heading" id="heading1">
+    <p class="headingtext">Jewelery Products</p>
+</div>
+<div class="cards">
+    <div class="card" *ngFor="let products of product; let productNumber = index">
+        <img src="{{products.image}}" alt="Product" id="productimg">
+        <div class="container">
+            <a routerLink="home/productexplain">
+                <a routerLink="productexplain" (click)="userSlectedCard(products)">
+                    <h4>{{products.title}}</h4>
+                    <p>₹{{products.price}}</p>
+                </a>
+            </a>
+        </div>
+        <div class="d-flex flex-wrap align-items-center justify-content-center">
+            <span class="m-2" *ngIf="!productNumberReturn.includes(productNumber)"
+              ><button
+                mat-stroked-button
+                color="primary"
+                (click)="addToCard(products, productNumber)"
+              >
+                Add To Cart
+              </button></span
+            >
+            <span class="m-2" *ngIf="productNumberReturn.includes(productNumber)"
+              ><button mat-stroked-button disabled color="primary">
+                In Cart
+              </button></span
+            >
+            <span class="m-2">
+              <button mat-raised-button color="warn" (click)="buyNow(products)">
+                Buy Now
+              </button></span
+            >
+          </div>
+    </div>
+</div>
