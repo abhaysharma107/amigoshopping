@@ -28,8 +28,8 @@ export class ElectronicComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  userSlectedCard(datas:any){
-    this.productsService.userOnClickData = datas
+  userSlectedCard(data:any){
+    this.productsService.userOnClickData = data
   }
   addToCard(data: any, productNumber:number){
     if (this.isLoggedIn == true) {

@@ -27,6 +27,13 @@ export class ProductsComponent implements OnInit {
       this.product = data;
     })
     this.checkLoginService.currentMessage.subscribe(message => {this.isLoggedIn = message})
+    this.cartService.cartItem().subscribe(data => {
+      let cartIds = []
+      for (let i = 0; i < data.length; i++) {
+        cartIds.push(data[i]._id)
+      }
+      sessionStorage.setItem('cartIds', JSON.stringify(cartIds))
+    })
   }
   userSlectedCard(datas:any){
     this.productsService.userOnClickData = datas
