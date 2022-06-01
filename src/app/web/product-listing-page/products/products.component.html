@@ -6,7 +6,7 @@
     <img src="{{ products.image }}" alt="Product" id="productimg" />
     <div class="container">
       <a routerLink="home/productexplain">
-        <a routerLink="productexplain" (click)="userSlectedCard(products)">
+        <a routerLink="productexplain" (click)="userSlectedCard(products._id)">
           <h4>{{ products.title }}</h4>
           <p>₹{{ products.price }}</p>
         </a>

@@ -44,8 +44,8 @@ export class MensWearComponent implements OnInit {
       }
     });
   }
-  userSlectedCard(datas:any){
-    this.productsService.userOnClickData = datas
+  userSlectedCard(product: any) {
+    this.router.navigateByUrl(`/home/productexplain?productId=${product}`);
   }
   addToCard(data: any, productNumber:number){
     if (this.isLoggedIn == true) {

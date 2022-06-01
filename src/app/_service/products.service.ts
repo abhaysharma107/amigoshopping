@@ -15,8 +15,7 @@ export class ProductsService {
   menswear = environment.url + '/products/mensclothing'
   womenswear = environment.url + '/products/womensclothing'
   jewelery = environment.url + '/products/jewelery'
-
-  userOnClickData:any=[]
+  details = environment.url + '/products/details'
 
   constructor(private http: HttpClient) { }
   getProducts():Observable<Product[]>{
@@ -63,5 +62,8 @@ export class ProductsService {
         return <Product[]> res;
       })
     )
+  }
+  getProductDetails(productId: any){
+    return this.http.post<Product[]>(this.details, {productId:productId})
   }
 }
