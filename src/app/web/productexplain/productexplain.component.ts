@@ -16,6 +16,7 @@ export class ProductexplainComponent implements OnInit {
   title:any=[];
   des:any=[];
   img:any=[];
+  _id:any;
   isLoggedIn = false;
   inCart = false;
   constructor(
@@ -25,14 +26,26 @@ export class ProductexplainComponent implements OnInit {
     private checkLoginService: CheckloginService,
     private router:Router
     ) { 
+  }
+
+  ngOnInit(): void {
     this.product = this.productService.userOnClickData;
     this.img = this.product.image;
     this.title = this.product.title;
     this.des = this.product.description;
-  }
-
-  ngOnInit(): void {
+    this._id = this.product._id;
+   
     this.checkLoginService.currentMessage.subscribe(message => {this.isLoggedIn = message})
+
+    this.cartService.cartItem().subscribe(data => {
+      let cartIds = [];
+      for (let i = 0; i < data.length; i++) {
+        cartIds.push(data[i]._id);
+      }
+      if (cartIds.includes(this._id)) {
+        this.inCart = true;
+      }
+    })
   }
 
   addToCart(product: Product) {

@@ -20,13 +20,30 @@ export class JeweleryComponent implements OnInit {
     private toster: ToastrService,
     private router: Router
     ) {
-    this.productsService.getProductsJewelery().subscribe(data =>{
-      this.product = data;
-    })
-    this.checkLoginService.currentMessage.subscribe(message => {this.isLoggedIn = message})
   }
 
   ngOnInit(): void {
+    this.productsService.getProductsJewelery().subscribe((data) => {
+      this.product = data;
+      this.checkForInCart(this.product);
+    });
+    this.checkLoginService.currentMessage.subscribe((message) => {
+      this.isLoggedIn = message;
+    });
+  }
+  
+  checkForInCart(product: any) {
+    this.cartService.cartItem().subscribe((data) => {
+      let cartIds = [];
+      for (let i = 0; i < data.length; i++) {
+        cartIds.push(data[i]._id);
+      }
+      for (let i = 0; i < product.length; i++) {
+        if (cartIds.indexOf(product[i]._id) >= 0) {
+          this.productNumberReturn.push(cartIds.indexOf(product[i]._id));
+        }
+      }
+    });
   }
   userSlectedCard(datas:any){
     this.productsService.userOnClickData = datas

@@ -20,13 +20,29 @@ export class ElectronicComponent implements OnInit {
     private toster: ToastrService,
     private router: Router
     ) {
-    this.productsService.getProductsElectronic().subscribe(data =>{
-      this.product = data;
-    })
-    this.checkLoginService.currentMessage.subscribe(message => {this.isLoggedIn = message})
   }
 
   ngOnInit(): void {
+    this.productsService.getProductsElectronic().subscribe((data) => {
+      this.product = data;
+      this.checkForInCart(this.product);
+    });
+    this.checkLoginService.currentMessage.subscribe((message) => {
+      this.isLoggedIn = message;
+    });
+  }
+  checkForInCart(product: any) {
+    this.cartService.cartItem().subscribe((data) => {
+      let cartIds = [];
+      for (let i = 0; i < data.length; i++) {
+        cartIds.push(data[i]._id);
+      }
+      for (let i = 0; i < product.length; i++) {
+        if (cartIds.indexOf(product[i]._id) >= 0) {
+          this.productNumberReturn.push(cartIds.indexOf(product[i]._id));
+        }
+      }
+    });
   }
   userSlectedCard(data:any){
     this.productsService.userOnClickData = data
