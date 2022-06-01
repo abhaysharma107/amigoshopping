@@ -41,15 +41,17 @@ export class ProductexplainComponent implements OnInit {
       this.isLoggedIn = message;
     });
 
-    this.cartService.cartItem().subscribe((data) => {
-      let cartIds = [];
-      for (let i = 0; i < data.length; i++) {
-        cartIds.push(data[i]._id);
-      }
-      if (cartIds.includes(this._id)) {
-        this.inCart = true;
-      }
-    });
+    if (this.isLoggedIn) {
+      this.cartService.cartItem().subscribe((data) => {
+        let cartIds = [];
+        for (let i = 0; i < data.length; i++) {
+          cartIds.push(data[i]._id);
+        }
+        if (cartIds.includes(this._id)) {
+          this.inCart = true;
+        }
+      });
+    }
   }
   getProductDetails() {
     this.productService.getProductDetails(this._id).subscribe((data) => {

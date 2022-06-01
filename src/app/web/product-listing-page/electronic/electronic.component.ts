@@ -25,7 +25,9 @@ export class ElectronicComponent implements OnInit {
   ngOnInit(): void {
     this.productsService.getProductsElectronic().subscribe((data) => {
       this.product = data;
-      this.checkForInCart(this.product);
+      if (this.isLoggedIn) {
+        this.checkForInCart(this.product);
+        }
     });
     this.checkLoginService.currentMessage.subscribe((message) => {
       this.isLoggedIn = message;

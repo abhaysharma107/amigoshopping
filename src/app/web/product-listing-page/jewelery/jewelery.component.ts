@@ -25,7 +25,9 @@ export class JeweleryComponent implements OnInit {
   ngOnInit(): void {
     this.productsService.getProductsJewelery().subscribe((data) => {
       this.product = data;
-      this.checkForInCart(this.product);
+      if (this.isLoggedIn) {
+        this.checkForInCart(this.product);
+        }
     });
     this.checkLoginService.currentMessage.subscribe((message) => {
       this.isLoggedIn = message;
