@@ -19,6 +19,7 @@ export class AppComponent implements OnInit{
         this.checkLoginService.changeMessage(true)
       } else{
         this.checkLoginService.changeMessage(false)
+        localStorage.clear()
       }
     })
   }
