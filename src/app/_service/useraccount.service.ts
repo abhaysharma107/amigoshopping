@@ -13,6 +13,7 @@ export class UseraccountService {
 
   userProfile = environment.url + '/userProfile'
   editUserProfile = environment.url + '/editProfile'
+  account= environment.url
 
   constructor(private http:HttpClient) { }
   userData():Observable<any>{
@@ -33,6 +34,13 @@ export class UseraccountService {
 
  editUserData(editUser: EditUser){
     return this.http.post<any>(this.editUserProfile, editUser, {
+      headers: new HttpHeaders({
+        'authorization': 'Bearer '+ localStorage.getItem('token'),
+      })
+    })
+  }
+  getAccount(){
+    return this.http.get<any>(this.account, {
       headers: new HttpHeaders({
         'authorization': 'Bearer '+ localStorage.getItem('token'),
       })

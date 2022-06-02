@@ -7,7 +7,7 @@
       <img [src]="cart.image" alt="Product" id="productimg" />
       <div class="container">
         <a routerLink="home/productexplain">
-          <a routerLink="productexplain" (click)="userSlectedCard(cart)">
+          <a routerLink="productexplain" (click)="userSlectedCard(cart.id)">
             <h4>{{ cart.title }}</h4>
             <p>₹{{ cart.price }}</p>
           </a>
