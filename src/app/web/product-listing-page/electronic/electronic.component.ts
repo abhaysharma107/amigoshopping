@@ -82,11 +82,11 @@ export class ElectronicComponent implements OnInit {
               }
             })
         },
-          prefill: {
-              name: "Gaurav Kumar",
-              email: "gaurav.kumar@example.com",
-              contact: "9999999999"
-          },
+          // prefill: {
+          //     name: "Gaurav Kumar",
+          //     email: "gaurav.kumar@example.com",
+          //     contact: "9999999999"
+          // },
           notes: {
               address: "Razorpay Corporate Office"
           },
